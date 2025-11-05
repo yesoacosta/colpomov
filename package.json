@@ -1,17 +1,9 @@
 {
   "name": "colpomov-ai-app",
   "version": "1.0.0",
-  "description": "Colposcopy report generator using Gemini API.",
+  "description": "Generador de informes Colposcópicos usando Gemini API.",
   "main": "index.html",
   "dependencies": {
     "@google/generative-ai": "^0.1.0"
-  },
-  "scripts": {
-    "start": "node index.html"
-  },
-  "keywords": [
-    "vercel",
-    "gemini",
-    "ai"
-  ]
+  }
 }
