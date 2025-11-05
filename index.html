@@ -273,11 +273,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
-        // *** ¡CORRECCIÓN APLICADA AQUÍ! ***
-        // Se cambió "window.onload" por "DOMContentLoaded".
-        // Esto hace que la aplicación se cargue inmediatamente sin esperar a scripts externos como jspdf.
         document.addEventListener('DOMContentLoaded', function() {
-            const { jsPDF } = window.jspdf;
+            // *** ¡CORRECCIÓN APLICADA AQUÍ! ***
+            // Se eliminó: const { jsPDF } = window.jspdf;
+            // Esa línea causaba un crash al inicio si jspdf no había cargado.
+            // Ahora la app se cargará correctamente.
 
             const screens = {
                 list: document.getElementById('patient-list-screen'),
@@ -367,7 +367,9 @@
                 patientListEl.innerHTML = '';
                 const filteredPatients = patients.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()));
 
-                if (filteredPatients.length === 0) {
+                if (filteredPatients.length === 0 && filterText === '') {
+                     patientListEl.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400 italic md:col-span-3">No hay pacientes. Toca 'Añadir Nueva Paciente' para empezar.</p>`;
+                } else if (filteredPatients.length === 0) {
                     patientListEl.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400 italic md:col-span-3">No hay pacientes registrados con ese nombre.</p>`;
                 }
 
@@ -523,12 +525,35 @@
                 const age = document.getElementById('age').value;
                 const socialSecurity = document.getElementById('social-security').value;
                 const medicalHistory = document.getElementById('medical-history').value;
-                const imageBase64 = currentImageBase64;
-                const signatureImageBase64 = currentSignatureBase64;
-
-                const newPatient = { id, name, age, socialSecurity, medicalHistory, imageBase64, reportText: "", signatureImageBase64 };
-
+                
+                // No sobreescribir la imagen o reporte si no se cambió
                 const patientIndex = patients.findIndex(p => p.id === id);
+                let existingPatient = {};
+                if (patientIndex > -1) {
+                    existingPatient = patients[patientIndex];
+                }
+
+                // Usar la nueva imagen si se cargó, sino mantener la existente
+                const imageBase64 = currentImageBase64 || existingPatient.imageBase64 || null;
+                const signatureImageBase64 = currentSignatureBase64 || existingPatient.signatureImageBase64 || null;
+                
+                // Si la imagen se actualiza, el reporte viejo ya no es válido.
+                let reportText = existingPatient.reportText || "";
+                if (currentImageBase64 && currentImageBase64 !== existingPatient.imageBase64) {
+                    reportText = ""; // Limpiar reporte si la imagen es nueva
+                }
+
+                const newPatient = { 
+                    id, 
+                    name, 
+                    age, 
+                    socialSecurity, 
+                    medicalHistory, 
+                    imageBase64, 
+                    reportText, 
+                    signatureImageBase64 
+                };
+
                 if (patientIndex > -1) {
                     patients[patientIndex] = newPatient;
                 } else {
@@ -537,13 +562,26 @@
                 
                 savePatients();
                 showModal('Éxito', `Datos de ${name} guardados correctamente.`);
+                
+                // Limpiar imágenes temporales
+                currentImageBase64 = null;
+                currentSignatureBase64 = null;
+                
                 showScreen(screens.list);
                 renderPatientList();
             });
 
             patientListEl.addEventListener('click', (event) => {
                 const target = event.target.closest('button');
-                if (!target) return;
+                if (!target) {
+                    // Permitir clic en la tarjeta completa para ver
+                    const card = event.target.closest('.patient-card');
+                    if (card && card.querySelector('.view-btn')) {
+                        card.querySelector('.view-btn').click();
+                    }
+                    return;
+                }
+
 
                 const id = target.dataset.id;
                 const patient = patients.find(p => p.id === id);
@@ -557,29 +595,31 @@
                         document.getElementById('social-security').value = patient.socialSecurity;
                         document.getElementById('medical-history').value = patient.medicalHistory;
                         
+                        // Limpiar vistas previas e imágenes temporales
+                        imagePreview.src = '';
+                        imagePreview.classList.add('hidden');
+                        currentImageBase64 = null;
+                        signaturePreview.src = '';
+                        signaturePreview.classList.add('hidden');
+                        currentSignatureBase64 = null;
+
                         if (patient.imageBase64) {
                             imagePreview.src = `data:image/jpeg;base64,${patient.imageBase64}`;
                             imagePreview.classList.remove('hidden');
-                            currentImageBase64 = patient.imageBase64;
+                            // No se setea currentImageBase64 aquí, solo al cargar una NUEVA
                             document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
                         } else {
-                            imagePreview.src = '';
-                            imagePreview.classList.add('hidden');
-                            currentImageBase64 = null;
                             document.getElementById('analyze-btn').parentElement.classList.add('hidden');
                         }
 
                         if (patient.signatureImageBase64) {
                             signaturePreview.src = `data:image/png;base64,${patient.signatureImageBase64}`;
                             signaturePreview.classList.remove('hidden');
-                            currentSignatureBase64 = patient.signatureImageBase64;
-                        } else {
-                            signaturePreview.src = '';
-                            signaturePreview.classList.add('hidden');
-                            currentSignatureBase64 = null;
                         }
 
                         document.getElementById('form-title').textContent = 'Editar Paciente';
+                        
+                        // Decidir si ir al reporte o al formulario
                         if (patient.reportText) {
                             reportEditor.textContent = patient.reportText;
                             document.getElementById('report-patient-name').textContent = patient.name;
@@ -593,25 +633,41 @@
                         }
                     }
                 } else if (target.classList.contains('delete-btn')) {
-                    patients = patients.filter(p => p.id !== id);
-                    savePatients();
-                    showModal('Eliminado', `Paciente ${patient.name} eliminado.`);
-                    renderPatientList();
+                    // Evitar que el clic en borrar también abra la tarjeta
+                    event.stopPropagation(); 
+                    if (confirm(`¿Estás seguro de que quieres eliminar a ${patient.name}? Esta acción no se puede deshacer.`)) {
+                        patients = patients.filter(p => p.id !== id);
+                        savePatients();
+                        showModal('Eliminado', `Paciente ${patient.name} eliminado.`);
+                        renderPatientList(patientSearch.value);
+                    }
                 }
             });
             
             analyzeBtn.addEventListener('click', async () => {
-                const patient = patients.find(p => p.id === currentPatientId);
+                let patient = patients.find(p => p.id === currentPatientId);
+                if (!patient) return;
 
-                if (!patient || !patient.imageBase64) {
-                    showModal('Error de Análisis', 'No hay una imagen para analizar. Por favor, sube una imagen de colposcopia.');
+                // ¡Importante! Usar la imagen recién cargada (currentImageBase64) si existe,
+                // si no, usar la que ya estaba guardada (patient.imageBase64).
+                const imageToAnalyze = currentImageBase64 || patient.imageBase64;
+
+                if (!imageToAnalyze) {
+                    showModal('Error de Análisis', 'No hay una imagen para analizar. Por favor, sube o captura una imagen de colposcopia.');
                     return;
                 }
                 
+                // Si se usó una imagen nueva, actualizar al paciente ANTES de analizar
+                if (currentImageBase64 && currentImageBase64 !== patient.imageBase64) {
+                    patient.imageBase64 = currentImageBase64;
+                    patient.reportText = ""; // Limpiar reporte anterior
+                    savePatients();
+                }
+
                 loadingOverlay.style.display = 'flex';
 
                 const promptData = {
-                    base64Image: patient.imageBase64,
+                    base64Image: imageToAnalyze,
                     medicalHistory: patient.medicalHistory
                 };
                 
@@ -633,17 +689,15 @@
                     const currentReportText = data.response;
                     reportEditor.textContent = currentReportText;
                     
-                    const currentPatient = patients.find(p => p.id === currentPatientId);
-                    if (currentPatient) {
-                        currentPatient.reportText = currentReportText;
-                        savePatients();
-                    }
+                    // Guardar el reporte generado en el paciente
+                    patient.reportText = currentReportText;
+                    savePatients();
 
                     document.getElementById('report-patient-name').textContent = patient.name;
                     document.getElementById('report-patient-age').textContent = patient.age;
                     document.getElementById('report-patient-social-security').textContent = patient.socialSecurity;
                     document.getElementById('report-patient-history').textContent = patient.medicalHistory;
-                    document.getElementById('report-image').src = `data:image/jpeg;base64,${patient.imageBase64}`;
+                    document.getElementById('report-image').src = `data:image/jpeg;base64,${imageToAnalyze}`;
                     
                     showScreen(screens.report);
                 } catch (error) {
@@ -651,10 +705,20 @@
                     showModal('Error de Análisis', `Hubo un problema al generar el informe. Detalle: ${error.message}`);
                 } finally {
                     loadingOverlay.style.display = 'none';
+                    currentImageBase64 = null; // Limpiar imagen temporal
                 }
             });
             
             backToListBtn.addEventListener('click', () => {
+                // Guardar ediciones manuales del reporte
+                const patient = patients.find(p => p.id === currentPatientId);
+                if (patient) {
+                    const editedText = reportEditor.textContent;
+                    if (patient.reportText !== editedText) {
+                        patient.reportText = editedText;
+                        savePatients();
+                    }
+                }
                 showScreen(screens.list);
             });
             
@@ -695,10 +759,24 @@
             };
 
             exportPdfBtn.addEventListener('click', async () => {
+                // *** ¡CORRECCIÓN APLICADA AQUÍ! ***
+                // Se obtiene jsPDF solo cuando se hace clic en el botón.
+                // Si 'window.jspdf' no existe, se muestra un error.
+                if (typeof window.jspdf === 'undefined' || typeof window.jspdf.jsPDF === 'undefined') {
+                    showModal('Error de PDF', 'La librería para generar PDF no se ha cargado. Revisa tu conexión a internet e intenta de nuevo.');
+                    return;
+                }
+                const { jsPDF } = window.jspdf;
+
                 const patient = patients.find(p => p.id === currentPatientId);
                 if (!patient) return;
                 
+                // Guardar ediciones manuales antes de exportar
                 const finalReportText = reportEditor.textContent;
+                if (patient.reportText !== finalReportText) {
+                    patient.reportText = finalReportText;
+                    savePatients();
+                }
                 
                 const doc = new jsPDF();
                 const pageWidth = doc.internal.pageSize.getWidth();
@@ -737,7 +815,7 @@
                 currentYForHeader = addTextWithPagination(doc, `Nombre: ${patient.name}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
                 currentYForHeader = addTextWithPagination(doc, `Edad: ${patient.age} años`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
                 currentYForHeader = addTextWithPagination(doc, `Obra Social: ${patient.socialSecurity}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
-                currentYForHeader = addTextWithPagination(doc, `Historial Médico: ${patient.medicalHistory}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
+                currentYForHeader = addTextWithPagination(doc, `Historial Médico: ${patient.medicalHistory || 'N/A'}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
                 
                 if (patient.imageBase64) {
                     try {
@@ -752,40 +830,33 @@
                 
                 y = Math.max(currentYForHeader, y + imageColpoHeight) + 15;
                 
-                const sections = finalReportText.split(/(?=\n\nObservaciones Principales:|\n\nPosible Diagnóstico:|\n\nRecomendaciones:)/).filter(s => s.trim() !== '');
+                // Procesar el texto del reporte
+                const sections = finalReportText.split('\n').filter(s => s.trim() !== '');
                 
-                sections.forEach(section => {
-                    const lines = section.split('\n').filter(l => l.trim() !== '');
-                    if (lines.length > 0) {
-                        const titleLine = lines[0].trim();
-                        let isSectionTitle = false;
-
-                        if (titleLine.startsWith('Observaciones Principales:') ||
-                            titleLine.startsWith('Posible Diagnóstico:') ||
-                            titleLine.startsWith('Recomendaciones:')) {
-                            isSectionTitle = true;
-                        }
-
-                        if (isSectionTitle) {
-                            y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 8, 14, true);
-                            y += 4;
-                        } else {
-                            y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 6, 12, false);
-                        }
-                        
-                        for (let i = 1; i < lines.length; i++) {
-                            const item = lines[i].trim();
-                            if (item.startsWith('- ')) {
-                                y = addTextWithPagination(doc, item.substring(2), margin + 5, y, pageWidth - 2 * margin - 5, 6, 12, false, true);
-                            } else {
-                                y = addTextWithPagination(doc, item, margin, y, pageWidth - 2 * margin, 6, 12);
-                            }
-                        }
-                        y += 8;
+                sections.forEach(line => {
+                    const trimLine = line.trim();
+                    if (trimLine.length === 0) {
+                        y += 4; // Espacio entre párrafos
+                    } else if (trimLine.startsWith('Observaciones Principales:') ||
+                               trimLine.startsWith('Posible Diagnóstico:') ||
+                               trimLine.startsWith('Recomendaciones:')) {
+                        y += 6; // Más espacio antes de un título de sección
+                        y = addTextWithPagination(doc, trimLine, margin, y, pageWidth - 2 * margin, 8, 14, true);
+                        y += 2;
+                    } else if (trimLine.startsWith('- ')) {
+                        y = addTextWithPagination(doc, trimLine.substring(2), margin + 5, y, pageWidth - 2 * margin - 5, 6, 12, false, true);
+                    } else {
+                        y = addTextWithPagination(doc, trimLine, margin, y, pageWidth - 2 * margin, 6, 12);
                     }
                 });
                 
-                doc.setPage(doc.internal.getNumberOfPages());
+                
+                // Asegurarse de que el footer no se sobreponga
+                if (y > doc.internal.pageSize.height - 60) {
+                    doc.addPage();
+                    y = 20;
+                }
+                
                 let finalPageHeight = doc.internal.pageSize.getHeight();
                 let footerY = finalPageHeight - 40;
 
@@ -822,7 +893,7 @@
                     doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
                 }
                 
-                doc.save(`Informe_ColpoVision_${patient.name}.pdf`);
+                doc.save(`Informe_ColpoVision_${patient.name.replace(/ /g, '_')}.pdf`);
                 showModal('PDF Exportado', 'El informe se ha exportado a PDF correctamente.');
             });
             
