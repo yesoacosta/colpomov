@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Generador de informes Colposcópicos usando Gemini API.",
   "main": "index.html",
+  "type": "module",
   "dependencies": {
     "@google/generative-ai": "^0.1.0"
   }
