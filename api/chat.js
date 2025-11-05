@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         }
 
         // 3. Seleccionar el modelo correcto para visión
-        const model = ai.getGenerativeModel({ model: "gemini-pro-vision" });
+        const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
 
         // 4. Construir el prompt y las partes
         const prompt = `Genera un informe colposcópico técnico y conciso basado en la siguiente imagen. Considera la Unión Escamocolumnar, la Zona de Transformación y el Exocérvix. Integra el historial médico del paciente si es relevante: "${medicalHistory}". El informe debe ser profesional, estructurado en secciones y estar en español. Evita frases introductorias o conversacionales. Utiliza el siguiente formato exacto para las secciones y viñetas:\n\nObservaciones Principales:\n- [Observación 1]\n- [Observación 2]\n\nPosible Diagnóstico:\n- [Diagnóstico 1]\n\nRecomendaciones:\n- [Recomendación 1]\n- [Recomendación 2]`;
