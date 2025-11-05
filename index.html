@@ -273,9 +273,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
+        // *** SOLUCIÓN 1: Cambiar de window.onload a DOMContentLoaded (más rápido y estable) ***
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Se utiliza 'var' en lugar de 'const' y 'let' para mayor compatibilidad.
+            // *** SOLUCIÓN 2: Usar 'var' y funciones compatibles para evitar el 'SyntaxError' ***
+            
             var screens = {
                 list: document.getElementById('patient-list-screen'),
                 form: document.getElementById('patient-form-screen'),
@@ -667,7 +669,7 @@
                 };
                 
                 try {
-                    // Nota: Esta llamada fallará si api/chat.js no está corregido con el modelo adecuado.
+                    // Esta llamada al servidor usará api/chat.js (donde está el problema del modelo)
                     var response = await fetch('/api/chat', {
                         method: 'POST',
                         headers: {
@@ -711,11 +713,11 @@
                     var editedText = reportEditor.textContent;
                     if (patient.reportText !== editedText) {
                         patient.reportText = editedText;
-                        savePatients(); // <-- Código que faltaba
+                        savePatients(); 
                     }
                 }
-                showScreen(screens.list); // <-- Código que faltaba
-            }); // <-- Cierre de la función anónima
+                showScreen(screens.list);
+            }); 
             
             function addTextWithPagination(doc, text, x, y, maxWidth, lineHeight, fontSize, isBold = false, isBullet = false) {
                 doc.setFont(isBold ? 'Helvetica-Bold' : 'Helvetica');
@@ -754,6 +756,7 @@
             };
 
             exportPdfBtn.addEventListener('click', async () => {
+                // Se obtiene jsPDF justo a tiempo
                 if (typeof window.jspdf === 'undefined' || typeof window.jspdf.jsPDF === 'undefined') {
                     showModal('Error de PDF', 'La librería para generar PDF no se ha cargado. Revisa tu conexión a internet e intenta de nuevo.');
                     return;
@@ -811,11 +814,11 @@
                 if (patient.imageBase64) {
                     try {
                         var img = await loadImage(`data:image/jpeg;base64,${patient.imageBase64}`);
-                        imageColpoHeight = (imageColpoWidth / img.naturalWidth) * img.naturalHeight;
+                        var imageColpoHeight = (imageColpoWidth / img.naturalWidth) * img.naturalHeight;
                         doc.addImage(img.src, 'JPEG', imageColpoX, y, imageColpoWidth, imageColpoHeight);
                     } catch (error) {
                         console.error("Error al cargar la imagen de colposcopia para PDF:", error);
-                        imageColpoHeight = imageColpoWidth * (3/4);
+                        var imageColpoHeight = imageColpoWidth * (3/4);
                     }
                 }
                 
