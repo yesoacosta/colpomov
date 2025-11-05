@@ -24,11 +24,11 @@ export default async function handler(req, res) {
   	 	 	 	 {
   	 	 	 	 	 role: "user",
   	 	 	 	 	 parts: [
-  	 	 	 	 	 	 { text: fullPrompt },
+  	 	 	 	   	 { text: fullPrompt },
   	 	 	 	 	 	 {
-  	 	 	 	 	 	 	 inlineData: {
+  	 	   	 	 	 	 	 inlineData: {
   	 	 	 	 	 	 	 	 mimeType: "image/jpeg",
-  	 	 	 	 	 	 	 	 data: base64Image // Usa la imagen BASE64 recibida
+    	 	 	 	 	 	 	 data: base64Image // Usa la imagen BASE64 recibida
   	   	 	 	 	 	 	 }
   	   	 	 	 	 	 }
   	   	 	 	 	 ]
