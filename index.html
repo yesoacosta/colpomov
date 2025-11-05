@@ -152,7 +152,7 @@
         .tooltip::after {
             content: "";
             position: absolute;
-D         top: 100%;
+            top: 100%;
             left: 50%;
             margin-left: -5px;
             border-width: 5px;
@@ -172,7 +172,7 @@ D         top: 100%;
     <div id="app-container" class="bg-white rounded-3xl shadow-xl p-8 lg:p-12 w-full max-w-7xl transition-colors duration-300">
         <div class="flex flex-col items-center justify-center mb-10 relative">
             <button id="dark-mode-toggle" class="absolute top-0 right-0 p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 rounded-full">
-A             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.618.752-3.831m11.234 11.455a9.71 9.71 0 0 1-3.69 1.636 9.707 9.707 0 0 1-4.041 0 9.72 9.72 0 0 1-3.69-1.636M2.25 10.5h18" />
                 </svg>
             </button>
@@ -180,7 +180,7 @@ A             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox=
                 <path d="M0 0h24v24H0z" stroke="none"/>
                 <circle cx="12" cy="12" r="9"/>
                 <path d="M12 7l-2 2l-1 -1M12 10l-3 3l-1 -1M12 13l-4 4l-1 -1M12 16l-5 5l-1 -1M12 19l-6 6l-1 -1"/>
-s       </svg>
+            </svg>
             <h1 class="text-4xl font-extrabold text-gray-900 mt-2 dark:text-white transition-colors duration-300">ColpoVision</h1>
             <p class="text-lg text-gray-500 mt-1 dark:text-gray-400 transition-colors duration-300">Generador de Informes Colposcópicos impulsado por IA</p>
         </div>
@@ -208,7 +208,7 @@ s       </svg>
                 <input type="hidden" id="patient-id">
                 <div>
                     <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Nombre de la Paciente</label>
-S                 <input type="text" id="name" required class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                    <input type="text" id="name" required class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
                     
                 </div>
                 <div>
@@ -222,20 +222,20 @@ S                 <input type="text" id="name" required class="w-full p-
                 <div>
                     <label for="medical-history" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Historial Médico Relevante</label>
                     <textarea id="medical-history" rows="4" class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"></textarea>
-s           </div>
+                </div>
                 <div>
                     <label for="colpo-image" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Imagen Colposcópica</label>
                     <input type="file" id="colpo-image" accept="image/*" class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800 cursor-pointer transition-colors">
                     
                     <button type="button" id="camera-btn" class="mt-4 w-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-4 px-4 rounded-xl shadow-md transition-colors">
-A                     Abrir Cámara
+                        Abrir Cámara
                     </button>
                     
                     <img id="image-preview" class="mt-6 hidden w-full h-64 object-contain rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800">
                 </div>
                 <div>
                     <label for="signature-image" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Imagen de Firma</label>
-                    <input type="file" id="signature-image" accept="image/*" class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800 cursor-pointer transition-colors">
+                  _event_ <input type="file" id="signature-image" accept="image/*" class="w-full p-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800 cursor-pointer transition-colors">
                     <img id="signature-preview" class="mt-6 hidden w-full h-32 object-contain rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800">
                 </div>
                 <div class="flex space-x-4">
@@ -244,7 +244,6 @@ A                     Abrir Cámara
                 </div>
             </form>
             <div id="action-buttons" class="mt-8 hidden flex space-x-4">
-section-separator
                 <button id="analyze-btn" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-4 rounded-xl shadow-md transition-colors">
                     Analizar y Generar Informe
                 </button>
@@ -263,16 +262,14 @@ section-separator
                         <p class="text-md text-gray-600 dark:text-gray-400"><span class="font-bold">Historial:</span> <span id="report-patient-history"></span></p>
                     </div>
                     <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-2xl border border-gray-200 dark:border-gray-600 shadow-sm">
-is
                         <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Imagen de Colposcopia</h3>
                         <img id="report-image" class="w-full h-auto rounded-xl shadow-lg border border-gray-300 dark:border-gray-600">
-S                 </div>
+                    </div>
                 </div>
 
                 <div class="space-y-6">
                     <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Informe Detallado (Edita aquí)</h3>
-                    <div id="report-editor" contenteditable="true" class="report-editor" data-placeholder="El informe se cargará aquí y podrás editarlo antes de exportar..."></div>
-SESSION-STATE-MODIFIED
+                    <div id="report-editor" contenteditable="true" class="report-editor h-96 overflow-y-auto p-4 rounded-xl" data-placeholder="El informe se cargará aquí y podrás editarlo antes de exportar..."></div>
                 </div>
             </div>
             
@@ -288,12 +285,11 @@ SESSION-STATE-MODIFIED
     </div>
 
     <div id="alert-modal" class="fixed inset-0 bg-gray-900 bg-opacity-60 hidden items-center justify-center p-4">
-section-separator
         <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl text-center max-w-lg w-full">
             <h3 id="alert-title" class="text-2xl font-bold text-gray-800 dark:text-white mb-4"></h3>
             <p id="alert-message" class="text-gray-700 dark:text-gray-300 text-lg mb-6"></p>
             <button id="alert-ok-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">Aceptar</button>
-s         <button id="alert-cancel-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-xl transition-colors hidden">Cancelar</button>
+            <button id="alert-cancel-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-xl transition-colors hidden">Cancelar</button>
         </div>
     </div>
 
@@ -303,7 +299,7 @@ s         <button id="alert-cancel-btn" class="bg-red-600 hover:bg-red-700 t
             <video id="video-stream" class="w-full h-auto rounded-xl border border-gray-300 dark:border-gray-600" autoplay playsinline></video>
             <canvas id="canvas-capture" class="hidden"></canvas>
             <div class="flex space-x-4 mt-6">
-  S           <button id="capture-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">Tomar Foto</button>
+                <button id="capture-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">Tomar Foto</button>
                 <button id="close-camera-btn" class="flex-1 bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-xl transition-colors">Cerrar</button>
             </div>
         </div>
@@ -323,18 +319,18 @@ s         <button id="alert-cancel-btn" class="bg-red-600 hover:bg-red-700 t
                 report: document.getElementById('report-screen')
             };
             const patientListEl = document.getElementById('patient-list');
-S         const patientForm = document.getElementById('patient-form');
+            const patientForm = document.getElementById('patient-form');
             const addPatientBtn = document.getElementById('add-patient-btn');
             const cancelFormBtn = document.getElementById('cancel-form-btn');
             const analyzeBtn = document.getElementById('analyze-btn');
             const backToListBtn = document.getElementById('back-to-list-btn');
             const exportPdfBtn = document.getElementById('export-pdf-btn');
-S         const loadingOverlay = document.getElementById('loading-overlay');
+            const loadingOverlay = document.getElementById('loading-overlay');
             const alertModal = document.getElementById('alert-modal');
             const alertTitle = document.getElementById('alert-title');
             const alertMessage = document.getElementById('alert-message');
             const alertOkBtn = document.getElementById('alert-ok-btn');
-s         const imageInput = document.getElementById('colpo-image');
+            const imageInput = document.getElementById('colpo-image');
             const imagePreview = document.getElementById('image-preview');
             const signatureImageInput = document.getElementById('signature-image');
             const signaturePreview = document.getElementById('signature-preview');
@@ -346,7 +342,7 @@ s         const imageInput = document.getElementById('colpo-image');
             const canvasCapture = document.getElementById('canvas-capture');
             const captureBtn = document.getElementById('capture-btn');
             const closeCameraBtn = document.getElementById('close-camera-btn');
-S         const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
 
             let stream;
             let patients = [];
@@ -368,7 +364,7 @@ S         const darkModeToggle = document.getElementById('dark-mode-toggle')
                 } catch (e) {
                     console.error("Error al cargar pacientes desde localStorage", e);
                     patients = [];
-              _event_ }
+                }
             }
             
             function toggleDarkMode() {
@@ -378,7 +374,6 @@ S         const darkModeToggle = document.getElementById('dark-mode-toggle')
 
             function applySavedTheme() {
                 if (localStorage.getItem('theme') === 'dark') {
-a
                     document.body.classList.add('dark');
                 }
             }
@@ -393,42 +388,39 @@ a
             }
 
             alertOkBtn.addEventListener('click', () => {
-i
-is             alertModal.classList.add('hidden');
+                alertModal.classList.add('hidden');
                 alertModal.classList.remove('flex');
             });
 
             function showScreen(screen) {
                 Object.values(screens).forEach(s => s.classList.add('hidden'));
-s
                 screen.classList.remove('hidden');
             }
 
             function renderPatientList(filterText = '') {
                 patientListEl.innerHTML = '';
                 const filteredPatients = patients.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()));
-i
 
                 if (filteredPatients.length === 0) {
                     patientListEl.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400 italic md:col-span-3">No hay pacientes registrados con ese nombre.</p>`;
                 }
-i
-              _event_ filteredPatients.forEach(patient => {
+
+                filteredPatients.forEach(patient => {
                     const patientCard = document.createElement('div');
                     patientCard.className = 'patient-card p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 cursor-pointer flex flex-col justify-between transform hover:scale-105 transition-all duration-300';
-S               patientCard.innerHTML = `
+                    patientCard.innerHTML = `
                         <div>
                             <p class="font-bold text-lg text-blue-800 dark:text-blue-300">${patient.name}</p>
                             <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Edad: ${patient.age} años</p>
                         </div>
                         <div class="flex space-x-2 mt-4 self-end">
                             <button class="view-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors" data-id="${patient.id}">
-S                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M0 0h24v24H0z" stroke="none"/>
                                   <path d="M10 12a2 2 0 104 0 2 2 0 10-4 0m-7.5 4a8.97 8.97 0 01-1.4-2.5C1.6 11.2 5.6 6 12 6s10.4 5.2 9.9 7.5a8.97 8.97 0 01-1.4 2.5m-15 0l-3.5 3.5m18.5-3.5l3.5 3.5"/>
                                 </svg>
                             </button>
-is                     <button class="delete-btn text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900 transition-colors" data-id="${patient.id}">
+                            <button class="delete-btn text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900 transition-colors" data-id="${patient.id}">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M0 0h24v24H0z" stroke="none"/>
                                   <path d="M4 7h16M10 11v6m4-6v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/>
@@ -436,7 +428,7 @@ is                     <button class="delete-btn text-red-500 dark:tex
                             </button>
                         </div>
                     `;
-            s     patientListEl.appendChild(patientCard);
+                    patientListEl.appendChild(patientCard);
                 });
             }
 
@@ -445,7 +437,7 @@ is                     <button class="delete-btn text-red-500 dark:tex
             });
 
             addPatientBtn.addEventListener('click', () => {
-S           patientForm.reset();
+                patientForm.reset();
                 document.getElementById('patient-id').value = '';
                 document.getElementById('form-title').textContent = 'Añadir Nueva Paciente';
                 imagePreview.src = '';
@@ -457,7 +449,6 @@ S           patientForm.reset();
             });
 
             cancelFormBtn.addEventListener('click', () => {
-s
                 showScreen(screens.list);
             });
 
@@ -465,19 +456,18 @@ s
                 const file = event.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-Read               reader.onload = e => {
+                    reader.onload = e => {
                         imagePreview.src = e.target.result;
                         imagePreview.classList.remove('hidden');
-                        currentImageBase64 = e.target.result.split(',')[1];
+                      t_currentImageBase64 = e.target.result.split(',')[1];
                         document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
                     };
                     reader.readAsDataURL(file);
-S             } else {
+                } else {
                     imagePreview.src = '';
                     imagePreview.classList.add('hidden');
                     currentImageBase64 = null;
                     document.getElementById('analyze-btn').parentElement.classList.add('hidden');
-s
                 }
             });
 
@@ -497,7 +487,6 @@ s
         
         videoStream.srcObject = stream;
         cameraModal.classList.remove('hidden');
-s
         cameraModal.classList.add('flex');
     } catch (err) {
         // Si falla la cámara trasera (ej. no existe), intenta con cualquier cámara disponible.
@@ -505,445 +494,391 @@ s
         
         try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-s
-Do         videoStream.srcObject = stream;
+            videoStream.srcObject = stream;
             cameraModal.classList.remove('hidden');
             cameraModal.classList.add('flex');
         } catch (finalError) {
             console.error("Error final al acceder a la cámara: ", finalError);
             showModal('Error de Cámara', 'No se pudo acceder a ninguna cámara. Por favor, revisa los permisos del dispositivo.');
-s
         }
     }
 });
 
-            captureBtn.addEventListener('click', () => {
-                const context = canvasCapture.getContext('2d');
-S             canvasCapture.width = videoStream.videoWidth;
-                canvasCapture.height = videoStream.videoHeight;
-                context.drawImage(videoStream, 0, 0, canvasCapture.width, canvasCapture.height);
-                
-                const imageDataUrl = canvasCapture.toDataURL('image/jpeg');
-s
-is             imagePreview.src = imageDataUrl;
-                imagePreview.classList.remove('hidden');
-                currentImageBase64 = imageDataUrl.split(',')[1];
-                document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
-                
-                closeCameraModal();
-a         });
-
-            function closeCameraModal() {
-                if (stream) {
-                    const tracks = stream.getTracks();
-s
-                    tracks.forEach(track => track.stop());
-                }
-                videoStream.srcObject = null;
-                cameraModal.classList.add('hidden');
-                cameraModal.classList.remove('flex');
-s         }
-
-s         closeCameraBtn.addEventListener('click', closeCameraModal);
-
-            signatureImageInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-  s
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = e => {
-                        signaturePreview.src = e.target.result;
-s
-                        signaturePreview.classList.remove('hidden');
-                        currentSignatureBase64 = e.target.result.split(',')[1];
-s
-                    };
-                    reader.readAsDataURL(file);
-SESSION-STATE-MODIFIED
-                } else {
-                    signaturePreview.src = '';
-s
-                    signaturePreview.classList.add('hidden');
-                    currentSignatureBase64 = null;
-                }
-            });
-
-            patientForm.addEventListener('submit', (event) => {
-s           event.preventDefault();
-s
-
-                if (!document.getElementById('name').value || !document.getElementById('age').value) {
-                    showModal('Error', 'Por favor, rellena los campos de Nombre y Edad.');
-                    return;
-                }
-
-              	 const id = document.getElementById('patient-id').value || crypto.randomUUID();
-s
-              	 const name = document.getElementById('name').value;
-              	 const age = document.getElementById('age').value;
-              	 const socialSecurity = document.getElementById('social-security').value;
-              	 const medicalHistory = document.getElementById('medical-history').value;
-              	 const imageBase64 = currentImageBase64;
-s
-s           	 const signatureImageBase64 = currentSignatureBase64;
-
-              	 const newPatient = { id, name, age, socialSecurity, medicalHistory, imageBase64, reportText: "", signatureImageBase64 };
-
-              	 const patientIndex = patients.findIndex(p => p.id === id);
-              	 if (patientIndex > -1) {
-              	 	 patients[patientIndex] = newPatient;
-is
-              	 } else {
-              	 	 patients.push(newPatient);
-s           	 }
+          	 captureBtn.addEventListener('click', () => {
+              	 const context = canvasCapture.getContext('2d');
+              	 canvasCapture.width = videoStream.videoWidth;
+              	 canvasCapture.height = videoStream.videoHeight;
+              	 context.drawImage(videoStream, 0, 0, canvasCapture.width, canvasCapture.height);
               	 
-              	 savePatients();
-              	 showModal('Éxito', `Datos de ${name} guardados correctamente.`);
-              	 showScreen(screens.list);
-              	 renderPatientList();
+              	 const imageDataUrl = canvasCapture.toDataURL('image/jpeg');
+              	 imagePreview.src = imageDataUrl;
+              	 imagePreview.classList.remove('hidden');
+              	 currentImageBase64 = imageDataUrl.split(',')[1];
+              	 document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
+              	 
+              	 closeCameraModal();
+          	 });
+
+          	 function closeCameraModal() {
+              	 if (stream) {
+              	 	 const tracks = stream.getTracks();
+              	 	 tracks.forEach(track => track.stop());
+content       	 	 }
+              	 videoStream.srcObject = null;
+              	 cameraModal.classList.add('hidden');
+            	 	 cameraModal.classList.remove('flex');
+          	 }
+
+          	 closeCameraBtn.addEventListener('click', closeCameraModal);
+
+          	 signatureImageInput.addEventListener('change', (event) => {
+            	 	 const file = event.target.files[0];
+            	 	 if (file) {
+              	 	 	 const reader = new FileReader();
+              	 	 	 reader.onload = e => {
+              	 	 	 	 signaturePreview.src = e.target.result;
+              	 	 	 	 signaturePreview.classList.remove('hidden');
+              	 	 	 	 currentSignatureBase64 = e.target.result.split(',')[1];
+              	 	 	 };
+              	 	 	 reader.readAsDataURL(file);
+            	 	 } else {
+              	 	 	 signaturePreview.src = '';
+              	 	 	 signaturePreview.classList.add('hidden');
+              	 	 	 currentSignatureBase64 = null;
+            	 	 }
+          	 });
+
+          	 patientForm.addEventListener('submit', (event) => {
+            	 	 event.preventDefault();
+
+            	 	 if (!document.getElementById('name').value || !document.getElementById('age').value) {
+              	 	 	 showModal('Error', 'Por favor, rellena los campos de Nombre y Edad.');
+              	 	 	 return;
+            	 	 }
+
+            	 	 const id = document.getElementById('patient-id').value || crypto.randomUUID();
+            	 	 const name = document.getElementById('name').value;
+            	 	 const age = document.getElementById('age').value;
+            	 	 const socialSecurity = document.getElementById('social-security').value;
+            	 	 const medicalHistory = document.getElementById('medical-history').value;
+            	 	 const imageBase64 = currentImageBase64;
+            	 	 const signatureImageBase64 = currentSignatureBase64;
+
+            	 	 const newPatient = { id, name, age, socialSecurity, medicalHistory, imageBase64, reportText: "", signatureImageBase64 };
+
+            	 	 const patientIndex = patients.findIndex(p => p.id === id);
+            	 	 if (patientIndex > -1) {
+            	 	 	 patients[patientIndex] = newPatient;
+            	 	 } else {
+            	 	 	 patients.push(newPatient);
+            	 	 }
+            	 	 
+            	 	 savePatients();
+            	 	 showModal('Éxito', `Datos de ${name} guardados correctamente.`);
+            	 	 showScreen(screens.list);
+            	 	 renderPatientList();
           	 });
 
           	 patientListEl.addEventListener('click', (event) => {
-              	 const target = event.target.closest('button');
-  	         	 if (!target) return;
+            	 	 const target = event.target.closest('button');
+            	 	 if (!target) return;
 
-              	 const id = target.dataset.id;
-              	 const patient = patients.find(p => p.id === id);
+            	 	 const id = target.dataset.id;
+            	 	 const patient = patients.find(p => p.id === id);
 
-              	 if (target.classList.contains('view-btn')) {
-              	 	 if (patient) {
-              	 	 	 currentPatientId = id;
-              	 	 	 document.getElementById('patient-id').value = patient.id;
-              	 	 	 document.getElementById('name').value = patient.name;
-              	 	 	 document.getElementById('age').value = patient.age;
-s
-              	 	 	 document.getElementById('social-security').value = patient.socialSecurity;
-              	 	 	 document.getElementById('medical-history').value = patient.medicalHistory;
-              	 	 	 
-              	 	 	 if (patient.imageBase64) {
-s
-      	       	 	 	 	 imagePreview.src = `data:image/jpeg;base64,${patient.imageBase64}`;
-              	 	 	 	 imagePreview.classList.remove('hidden');
-              	 	 	 	 currentImageBase64 = patient.imageBase64;
-              	 	 	 	 document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
-              	 	 	 } else {
-              	 	 	 	 imagePreview.src = '';
-s
-_event_             	 	 	 	 imagePreview.classList.add('hidden');
-              	 	 	 	 currentImageBase64 = null;
-              	 	 	 	 document.getElementById('analyze-btn').parentElement.classList.add('hidden');
-              	 	 	 }
+            	 	 if (target.classList.contains('view-btn')) {
+            	 	 	 if (patient) {
+            	 	 	 	 currentPatientId = id;
+            	 	 	 	 document.getElementById('patient-id').value = patient.id;
+            	 	 	 	 document.getElementById('name').value = patient.name;
+            	 	 	 	 document.getElementById('age').value = patient.age;
+            	 	 	 	 document.getElementById('social-security').value = patient.socialSecurity;
+            	 	 	 	 document.getElementById('medical-history').value = patient.medicalHistory;
+            	 	 	 	 
+            	 	 	 	 if (patient.imageBase64) {
+            	 	 	 	 	 imagePreview.src = `data:image/jpeg;base64,${patient.imageBase64}`;
+            	 	 	 	 	 imagePreview.classList.remove('hidden');
+            	 	 	 	 	 currentImageBase64 = patient.imageBase64;
+            	 	 	 	 	 document.getElementById('analyze-btn').parentElement.classList.remove('hidden');
+            	 	 	 	 } else {
+            	 	 	 	 	 imagePreview.src = '';
+            	 	 	 	 	 imagePreview.classList.add('hidden');
+image         	 	 	 	 	 currentImageBase64 = null;
+            	 	 	 	 	 document.getElementById('analyze-btn').parentElement.classList.add('hidden');
+            	 	 	 	 }
 
-              	 	 	 if (patient.signatureImageBase64) {
-s
-s
-              	 	 	 	 signaturePreview.src = `data:image/png;base64,${patient.signatureImageBase64}`;
-              	 	 	 	 signaturePreview.classList.remove('hidden');
-              	 	 	 	 currentSignatureBase64 = patient.signatureImageBase64;
-              	 	 	 } else {
-              	 	 	 	 signaturePreview.src = '';
-s
-              	 	 	 	 signaturePreview.classList.add('hidden');
-              	 	 	 	 currentSignatureBase64 = null;
-              	 	 	 }
+            	 	 	 	 if (patient.signatureImageBase64) {
+            	 	 	 	 	 signaturePreview.src = `data:image/png;base64,${patient.signatureImageBase64}`;
+            	 	 	 	 	 signaturePreview.classList.remove('hidden');
+            	 	 	 	 	 currentSignatureBase64 = patient.signatureImageBase64;
+            	 	 	 	 } else {
+            	 	 	 	 	 signaturePreview.src = '';
+            	 	 	 	 	 signaturePreview.classList.add('hidden');
+SESSION-STATE-MODIFIED
+            	 	 	 	 	 currentSignatureBase64 = null;
+            	 	 	 	 }
 
-              	 	 	 document.getElementById('form-title').textContent = 'Editar Paciente';
-              	 	 	 if (patient.reportText) {
-              	 	 	 	 reportEditor.textContent = patient.reportText;
-              	 	 	 	 document.getElementById('report-patient-name').textContent = patient.name;
-              	 	 	 	 document.getElementById('report-patient-age').textContent = patient.age;
-s
-s
-s             	 	 	 document.getElementById('report-patient-social-security').textContent = patient.socialSecurity;
-              	 	 	 	 document.getElementById('report-patient-history').textContent = patient.medicalHistory;
-s
-s
-              	 	 	 	 document.getElementById('report-image').src = `data:image/jpeg;base64,${patient.imageBase64}`;
-              	 	 	 	 showScreen(screens.report);
-              	 	 	 } else {
-    section-separator
-            	 	 	 	 showScreen(screens.form);
-              	 	 	 }
-              	 	 }
-              	 } else if (target.classList.contains('delete-btn')) {
-              	 	 patients = patients.filter(p => p.id !== id);
-              	 	 savePatients();
-              	 	 showModal('Eliminado', `Paciente ${patient.name} eliminado.`);
-              	 	 renderPatientList();
-              	 }
+            	 	 	 	 document.getElementById('form-title').textContent = 'Editar Paciente';
+            	 	 	 	 if (patient.reportText) {
+            	 	 	 	 	 reportEditor.textContent = patient.reportText;
+            	 	 	 	 	 document.getElementById('report-patient-name').textContent = patient.name;
+            	 	 	 	 	 document.getElementById('report-patient-age').textContent = patient.age;
+            	 	 	 	 	 document.getElementById('report-patient-social-security').textContent = patient.socialSecurity;
+            	 	 	 	 	 document.getElementById('report-patient-history').textContent = patient.medicalHistory;
+            	 	 	 	 	 document.getElementById('report-image').src = `data:image/jpeg;base64,${patient.imageBase64}`;
+            	 	 	 	 	 showScreen(screens.report);
+            	 	 	 	 } else {
+            	 	 	 	 	 showScreen(screens.form);
+            	 	 	 	 }
+            	 	 	 }
+            	 	 } else if (target.classList.contains('delete-btn')) {
+            	 	 	 patients = patients.filter(p => p.id !== id);
+            	 	 	 savePatients();
+            	 	 	 showModal('Eliminado', `Paciente ${patient.name} eliminado.`);
+            	 	 	 renderPatientList();
+            	 	 }
           	 });
           	 
-content         // --- BLOQUE analyzeBtn CORREGIDO PARA USAR EL SERVIDOR SEGURO ---
-            analyzeBtn.addEventListener('click', async () => {
-                const patient = patients.find(p => p.id === currentPatientId);
+          	 // --- BLOQUE analyzeBtn CORREGIDO PARA USAR EL SERVIDOR SEGURO ---
+          	 analyzeBtn.addEventListener('click', async () => {
+          	 	 const patient = patients.find(p => p.id === currentPatientId);
 
-                if (!patient || !patient.imageBase64) {
-                    showModal('Error de Análisis', 'No hay una imagen para analizar. Por favor, sube una imagen de colposcopia.');
-                    return;
-                }
-                        
-                loadingOverlay.style.display = 'flex';
+          	 	 if (!patient || !patient.imageBase64) {
+          	 	 	 showModal('Error de Análisis', 'No hay una imagen para analizar. Por favor, sube una imagen de colposcopia.');
+          	 	 	 return;
+          	 	 }
+          	 	 	 	 
+          	 	 loadingOverlay.style.display = 'flex';
 
-                // 1. Prepara los datos a enviar al servidor seguro (incluye la imagen)
-                const promptData = {
-                    base64Image: patient.imageBase64,
-                    medicalHistory: patient.medicalHistory
-                };
-                        
-                try {
-                    // 2. Llama al API Endpoint seguro que creamos (/api/chat)
-                    const response = await fetch('/api/chat', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(promptData)
-                    });
+          	 	 // 1. Prepara los datos a enviar al servidor seguro (incluye la imagen)
+          	 	 const promptData = {
+          	 	 	 base64Image: patient.imageBase64,
+          	 	 	 medicalHistory: patient.medicalHistory
+          	 	 };
+          	 	 	 	 
+          	 	 try {
+          	 	 	 // 2. Llama al API Endpoint seguro que creamos (/api/chat)
+          	 	 	 const response = await fetch('/api/chat', {
+          	 	 	 	 method: 'POST',
+          	 	 	 	 headers: {
+          	 	 	 	 	 'Content-Type': 'application/json'
+          	 	 	 	 },
+          	 	 	 	 body: JSON.stringify(promptData)
+          	 	 	 });
 
-                    const data = await response.json();
+          	 	 	 const data = await response.json();
 
-                    if (!response.ok || data.error) {
-                        // Muestra el error exacto que viene del servidor (api/chat.js)
-                        throw new Error(data.error || 'Fallo la conexión con el generador de informes.');
-                    }
+          	 	 	 if (!response.ok || data.error) {
+          	 	 	 	 // Muestra el error exacto que viene del servidor (api/chat.js)
+          	 	 	 	 throw new Error(data.error || 'Fallo la conexión con el generador de informes.');
+          	 	 	 }
 
-                    // 3. Procesa el informe exitoso
-                    const currentReportText = data.response;
-                    reportEditor.textContent = currentReportText;
-                    
-                    // Guarda en LocalStorage
-                    const currentPatient = patients.find(p => p.id === currentPatientId);
-                    if (currentPatient) {
-                        currentPatient.reportText = currentReportText;
-                        savePatients();
-                    }
+          	 	 	 // 3. Procesa el informe exitoso
+          	 	 	 const currentReportText = data.response;
+          	 	 	 reportEditor.textContent = currentReportText;
+          	 	 	 
+          	 	 	 // Guarda en LocalStorage
+          	 	 	 const currentPatient = patients.find(p => p.id === currentPatientId);
+          	 	 	 if (currentPatient) {
+          	 	 	 	 currentPatient.reportText = currentReportText;
+          	 	 	 	 savePatients();
+          	 	 	 }
 
-                    document.getElementById('report-patient-name').textContent = patient.name;
-                    document.getElementById('report-patient-age').textContent = patient.age;
-                    document.getElementById('report-patient-social-security').textContent = patient.socialSecurity;
-                    document.getElementById('report-patient-history').textContent = patient.medicalHistory;
-                    document.getElementById('report-image').src = `data:image/jpeg;base64,${patient.imageBase64}`;
-                        
-                    showScreen(screens.report);
-                } catch (error) {
-                    console.error('Error al generar el informe:', error);
-                    showModal('Error de Análisis', `Hubo un problema al generar el informe. Detalle: ${error.message}`);
-                } finally {
-                    loadingOverlay.style.display = 'none';
-                }
-            });
-            // --- FIN DEL BLOQUE analyzeBtn CORREGIDO ---
+          	 	 	 document.getElementById('report-patient-name').textContent = patient.name;
+          	 	 	 document.getElementById('report-patient-age').textContent = patient.age;
+          	 	 	 document.getElementById('report-patient-social-security').textContent = patient.socialSecurity;
+          	 	 	 document.getElementById('report-patient-history').textContent = patient.medicalHistory;
+          	 	 	 document.getElementById('report-image').src = `data:image/jpeg;base64,${patient.imageBase64}`;
+          	 	 	 	 	 
+          	 	 	 showScreen(screens.report);
+          	 	 } catch (error) {
+          	 	 	 console.error('Error al generar el informe:', error);
+          	 	 	 showModal('Error de Análisis', `Hubo un problema al generar el informe. Detalle: ${error.message}`);
+          	 	 } finally {
+          	 	 	 loadingOverlay.style.display = 'none';
+          	 	 }
+          	 });
+          	 // --- FIN DEL BLOQUE analyzeBtn CORREGIDO ---
           	 
           	 backToListBtn.addEventListener('click', () => {
-              	 showScreen(screens.list);
+          	 	 showScreen(screens.list);
           	 });
           	 
           	 function addTextWithPagination(doc, text, x, y, maxWidth, lineHeight, fontSize, isBold = false, isBullet = false) {
-              	 doc.setFont(isBold ? 'Helvetica-Bold' : 'Helvetica');
-              	 doc.setFontSize(fontSize);
-              	 const lines = doc.splitTextToSize(text, maxWidth);
-              	 let currentY = y;
+          	 	 doc.setFont(isBold ? 'Helvetica-Bold' : 'Helvetica');
+          	 	 doc.setFontSize(fontSize);
+          	 	 const lines = doc.splitTextToSize(text, maxWidth);
+s         	 	 let currentY = y;
           	 
-              	 lines.forEach(line => {
-i
-              	 	 if (currentY > doc.internal.pageSize.height - 30) {
-              	 	 	 doc.addPage();
-              	 	 	 currentY = 20;
-s
-              	 	 	 doc.setFontSize(10);
-              	 	 	 doc.setTextColor(150);
-              	 	 	 doc.text(`Página ${doc.internal.getNumberOfPages()}`, doc.internal.pageSize.width - 20, doc.internal.pageSize.height - 10);
-              	 	 	 doc.setFontSize(fontSize);
-              	 	 	 doc.setTextColor(0);
-              	 	 	 doc.setFont(isBold ? 'Helvetica-Bold' : 'Helvetica');
-              	 	 }
-              	 	 if (isBullet) {
-SESSION-STATE-MODIFIED
-s             	 	 doc.text('• ' + line, x, currentY);
-              	 	 } else {
-              	 	 	 doc.text(line, x, currentY);
-s
-              	 	 }
-              	 	 currentY += lineHeight;
-              	 });
-              	 return currentY;
+          	 	 lines.forEach(line => {
+          	 	 	 if (currentY > doc.internal.pageSize.height - 30) {
+          	 	 	 	 doc.addPage();
+          	 	 	 	 currentY = 20;
+          	 	 	 	 doc.setFontSize(10);
+          	 	 	 	 doc.setTextColor(150);
+          	 	 	 	 doc.text(`Página ${doc.internal.getNumberOfPages()}`, doc.internal.pageSize.width - 20, doc.internal.pageSize.height - 10);
+          	 	 	 	 doc.setFontSize(fontSize);
+          	 	 	 	 doc.setTextColor(0);
+          	 	 	 	 doc.setFont(isBold ? 'Helvetica-Bold' : 'Helvetica');
+          	 	 	 }
+          	 	 	 if (isBullet) {
+          	 	 	 	 doc.text('• ' + line, x, currentY);
+          	 	 	 } else {
+          	 	 	 	 doc.text(line, x, currentY);
+          	 	 	 }
+          	 	 	 currentY += lineHeight;
+          	 	 });
+          	 	 return currentY;
           	 }
-i
+
           	 const loadImage = (src) => {
-s           	 return new Promise((resolve, reject) => {
-              	 	 const img = new Image();
-s
-              	 	 img.onload = () => resolve(img);
-              	 	 img.onerror = reject;
-              	 	 img.src = src;
-  is
-          	 });
+          	 	 return new Promise((resolve, reject) => {
+          	 	 	 const img = new Image();
+          	 	 	 img.onload = () => resolve(img);
+          	 	 	 img.onerror = reject;
+          	 	 	 img.src = src;
+          	 	 });
           	 };
-i
+
           	 exportPdfBtn.addEventListener('click', async () => {
-s
-              	 const patient = patients.find(p => p.id === currentPatientId);
-              	 if (!patient) return;
-          	 
-              	 const finalReportText = reportEditor.textContent;
-s
-all           	 
-              	 const doc = new jsPDF();
-              	 const pageWidth = doc.internal.pageSize.getWidth();
-              	 const margin = 20;
-              	 let y = 20;
-s
-          	 
-              	 doc.setFont('Helvetica-Bold');
-              	 doc.setFontSize(22);
-              	 doc.setTextColor(30, 41, 59);
-content           doc.text('Dr Yesid Acosta Peinado', pageWidth / 2, y, { align: 'center' });
-              	 y += 10;
-              	 doc.setFontSize(18);
-              	 doc.text('INFORME COLPOSCÓPICO', pageWidth / 2, y, { align: 'center' });
-              	 y += 15;
-          	 
-              	 doc.setDrawColor(226, 232, 240);
+          	 	 const patient = patients.find(p => p.id === currentPatientId);
+          	 	 if (!patient) return;
+      	 	 	 
+          	 	 const finalReportText = reportEditor.textContent;
+      	 	 	 
+          	 	 const doc = new jsPDF();
+          	 	 const pageWidth = doc.internal.pageSize.getWidth();
+          	 	 const margin = 20;
+          	 	 let y = 20;
+      	 	 	 
+          	 	 doc.setFont('Helvetica-Bold');
+          	 	 doc.setFontSize(22);
+          	 	 doc.setTextColor(30, 41, 59);
+          	 	 doc.text('Dr Yesid Acosta Peinado', pageWidth / 2, y, { align: 'center' });
+          	 	 y += 10;
+          	 	 doc.setFontSize(18);
+          	 	 doc.text('INFORME COLPOSCÓPICO', pageWidth / 2, y, { align: 'center' });
+          	 	 y += 15;
+      	 	 	 
+          	 	 doc.setDrawColor(226, 232, 240);
 SESSION-STATE-MODIFIED
-              	 doc.line(margin, y, pageWidth - margin, y);
-              	 y += 10;
-          	 
-              	 const patientDataStartX = margin;
-              	 const patientDataWidth = pageWidth / 2 - margin - 10;
-              	 const imageColpoWidth = 60;
-s
-      	     	 let imageColpoHeight = 0;
-s
-      	     	 const imageColpoX = pageWidth - margin - imageColpoWidth;
-      	     	 let currentYForHeader = y;
+          	 	 doc.line(margin, y, pageWidth - margin, y);
+          	 	 y += 10;
+      	 	 	 
+          	 	 const patientDataStartX = margin;
+          	 	 const patientDataWidth = pageWidth / 2 - margin - 10;
+          	 	 const imageColpoWidth = 60;
+      	 	 	 	 let imageColpoHeight = 0;
+      	 	 	 	 const imageColpoX = pageWidth - margin - imageColpoWidth;
+      	 	 	 	 let currentYForHeader = y;
 
-  	       		 doc.setFont('Helvetica-Bold');
-s
-      	     	 doc.setFontSize(14);
-      	     	 doc.setTextColor(51, 65, 85);
-A       	     	 doc.text('Datos de la Paciente', patientDataStartX, currentYForHeader);
-      	     	 currentYForHeader += 8;
+  	   	 	 	 	 doc.setFont('Helvetica-Bold');
+      	 	 	 	 doc.setFontSize(14);
+      	 	 	 	 doc.setTextColor(51, 65, 85);
+      	 	 	 	 doc.text('Datos de la Paciente', patientDataStartX, currentYForHeader);
+      	 	 	 	 currentYForHeader += 8;
 
-  	       		 doc.setFont('Helvetica');
-s
-      	     	 doc.setFontSize(12);
-      	     	 doc.setTextColor(75, 85, 99);
-      	     	 currentYForHeader = addTextWithPagination(doc, `Nombre: ${patient.name}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
-s
-      	     	 currentYForHeader = addTextWithPagination(doc, `Edad: ${patient.age} años`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
-      	     	 currentYForHeader = addTextWithPagination(doc, `Obra Social: ${patient.socialSecurity}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
-      	     	 currentYForHeader = addTextWithPagination(doc, `Historial Médico: ${patient.medicalHistory}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
-      	     	 
-      	     	 if (patient.imageBase64) {
-              	 	 try {
-s
-              	 	 	 const img = await loadImage(`data:image/jpeg;base64,${patient.imageBase64}`);
-Read             	 	 	 imageColpoHeight = (imageColpoWidth / img.naturalWidth) * img.naturalHeight;
-              	 	 	 doc.addImage(img.src, 'JPEG', imageColpoX, y, imageColpoWidth, imageColpoHeight);
-              	 	 } catch (error) {
-              	 	 	 console.error("Error al cargar la imagen de colposcopia para PDF:", error);
-all             	 	 	 imageColpoHeight = imageColpoWidth * (3/4);
-s
-              	 	 }
-              	 }
-          	 
-      	     	 y = Math.max(currentYForHeader, y + imageColpoHeight) + 15;
-      	     	 
-      	     	 const sections = finalReportText.split(/(?=\n\nObservaciones Principales:|\n\nPosible Diagnóstico:|\n\nRecomendaciones:)/).filter(s => s.trim() !== '');
-      	     	 
-      	     	 sections.forEach(section => {
-              	 	 const lines = section.split('\n').filter(l => l.trim() !== '');
-              	 	 if (lines.length > 0) {
-              	 	 	 const titleLine = lines[0].trim();
-              	 	 	 let isSectionTitle = false;
+  	   	 	 	 	 doc.setFont('Helvetica');
+      	 	 	 	 doc.setFontSize(12);
+      	 	 	 	 doc.setTextColor(75, 85, 99);
+      	 	 	 	 currentYForHeader = addTextWithPagination(doc, `Nombre: ${patient.name}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
+      	 	 	 	 currentYForHeader = addTextWithPagination(doc, `Edad: ${patient.age} años`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
+      	 	 	 	 currentYForHeader = addTextWithPagination(doc, `Obra Social: ${patient.socialSecurity}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
+      	 	 	 	 currentYForHeader = addTextWithPagination(doc, `Historial Médico: ${patient.medicalHistory}`, patientDataStartX, currentYForHeader, patientDataWidth, 6, 12);
+      	 	 	 	 
+      	 	 	 	 if (patient.imageBase64) {
+      	 	 	 	 	 try {
+      	 	 	 	 	 	 const img = await loadImage(`data:image/jpeg;base64,${patient.imageBase64}`);
+      	 	 	 	 	 	 imageColpoHeight = (imageColpoWidth / img.naturalWidth) * img.naturalHeight;
+      	 	 	 	 	 	 doc.addImage(img.src, 'JPEG', imageColpoX, y, imageColpoWidth, imageColpoHeight);
+      	 	 	 	 	 } catch (error) {
+      	 	 	 	 	 	 console.error("Error al cargar la imagen de colposcopia para PDF:", error);
+      	 	 	 	 	 	 imageColpoHeight = imageColpoWidth * (3/4);
+      	 	 	 	 	 }
+      	 	 	 	 }
+      	 	 	 	 
+      	 	 	 	 y = Math.max(currentYForHeader, y + imageColpoHeight) + 15;
+      	 	 	 	 
+      	 	 	 	 const sections = finalReportText.split(/(?=\n\nObservaciones Principales:|\n\nPosible Diagnóstico:|\n\nRecomendaciones:)/).filter(s => s.trim() !== '');
+      	 	 	 	 
+      	 	 	 	 sections.forEach(section => {
+      	 	 	 	 	 const lines = section.split('\n').filter(l => l.trim() !== '');
+      	 	 	 	 	 if (lines.length > 0) {
+      	 	 	 	 	 	 const titleLine = lines[0].trim();
+      	 	 	 	 	 	 let isSectionTitle = false;
 
-              	 	 	 if (titleLine.startsWith('Observaciones Principales:') ||
-s
-Read             	 	 	 	 titleLine.startsWith('Posible Diagnóstico:') ||
-              	 	 	 	 titleLine.startsWith('Recomendaciones:')) {
-              	 	 	 	 isSectionTitle = true;
-              	 	 	 }
+      	 	 	 	 	 	 if (titleLine.startsWith('Observaciones Principales:') ||
+      	 	 	 	 	 	 	 titleLine.startsWith('Posible Diagnóstico:') ||
+      	 	 	 	 	 	 	 titleLine.startsWith('Recomendaciones:')) {
+      	 	 	 	 	 	 	 isSectionTitle = true;
+      	 	 	 	 	 	 }
 
-is           	 	 	 if (isSectionTitle) {
-              	 	 	 	 y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 8, 14, true);
-              	 	 	 	 y += 4;
-              	 	 	 } else {
-              	 	 	 s
-              	 	 	 	 y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 6, 12, false);
-              	 	 	 }
-              	 	 	 
-              	 	 	 for (let i = 1; i < lines.length; i++) {
-              	 	 	 	 const item = lines[i].trim();
-              	 	 	 	 if (item.startsWith('- ')) {
-s
-              	 	 	 	 	 y = addTextWithPagination(doc, item.substring(2), margin + 5, y, pageWidth - 2 * margin - 5, 6, 12, false, true);
-              	 	 	 	 } else {
-              	 	 	 	 	 y = addTextWithPagination(doc, item, margin, y, pageWidth - 2 * margin, 6, 12);
-s             	 	 	 	 }
-              	 	 	 }
-              	 	 	 y += 8;
-OS
-              	 	 }
-A         	 	 });
-          	 
-      	     	 doc.setPage(doc.internal.getNumberOfPages());
-A       	     	 let finalPageHeight = doc.internal.pageSize.getHeight();
-      	     	 let footerY = finalPageHeight - 40;
-s
-            	 d
-      	     	 doc.setFontSize(10);
-s         	 	 doc.setTextColor(80, 80, 80);
-A       	     	 doc.text(`Fecha del Informe: ${new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}`, margin, footerY);
-s
-_event_           	 const signatureImgWidth = 60;
-      	     	 const signatureText = 'Firma y Sello del Médico';
-      	     	 const signatureAreaX = pageWidth - margin - signatureImgWidth;
+      	 	 	 	 	 	 if (isSectionTitle) {
+      	 	 	 	 	 	 	 y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 8, 14, true);
+      	 	 	 	 	 	 	 y += 4;
+      	 	 	 	 	 	 } else {
+      	 	 	 	 	 	 	 y = addTextWithPagination(doc, titleLine, margin, y, pageWidth - 2 * margin, 6, 12, false);
+      	 	 	 	 	 	 }
+      	 	 	 	 	 	 
+      	 	 	 	 	 	 for (let i = 1; i < lines.length; i++) {
+      	 	 	 	 	 	 	 const item = lines[i].trim();
+      	 	 	 	 	 	 	 if (item.startsWith('- ')) {
+      	 	 	 	 	 	 	 	 y = addTextWithPagination(doc, item.substring(2), margin + 5, y, pageWidth - 2 * margin - 5, 6, 12, false, true);
+      	 	 	 	 	 	 	 } else {
+      	 	 	 	 	 	 	 	 y = addTextWithPagination(doc, item, margin, y, pageWidth - 2 * margin, 6, 12);
+      	 	 	 	 	 	 	 }
+      	 	 	 	 	 	 }
+      	     	 	 	 	 y += 8;
+      	 	 	 	 	 }
+      	 	 	 	 });
+      	 	 	 	 
+      	 	 	 	 doc.setPage(doc.internal.getNumberOfPages());
+      	 	 	 	 let finalPageHeight = doc.internal.pageSize.getHeight();
+      	 	 	 	 let footerY = finalPageHeight - 40;
 
-      	     	 if (patient.signatureImageBase64) {
-              	 	 try {
-  s
-            	 	 	 const signatureImg = await loadImage(`data:image/png;base64,${patient.signatureImageBase64}`);
-              	 	 	 let signatureImgHeight = (signatureImgWidth / signatureImg.naturalWidth) * signatureImg.naturalHeight;
-              	 	 	 
-              	 	 	 const imgSignatureY = Math.max(footerY - signatureImgHeight - 5, margin);
-              	 	 	 
-              	 	 	 doc.addImage(signatureImg.src, 'PNG', signatureAreaX, imgSignatureY, signatureImgWidth, signatureImgHeight);
+      	 	 	 	 doc.setFontSize(10);
+      	 	 	 	 doc.setTextColor(80, 80, 80);
+      	 	 	 	 doc.text(`Fecha del Informe: ${new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}`, margin, footerY);
+
+      	 	 	 	 const signatureImgWidth = 60;
+      	 	 	 	 const signatureText = 'Firma y Sello del Médico';
+      	 	 	 	 const signatureAreaX = pageWidth - margin - signatureImgWidth;
+
+      	 	 	 	 if (patient.signatureImageBase64) {
+      	 	 	 	 	 try {
+      	 	 	 	 	 	 const signatureImg = await loadImage(`data:image/png;base64,${patient.signatureImageBase64}`);
+      	 	 	 	 	 	 let signatureImgHeight = (signatureImgWidth / signatureImg.naturalWidth) * signatureImg.naturalHeight;
+      	 	     	 	 	 
+      	 	 	 	 	 	 const imgSignatureY = Math.max(footerY - signatureImgHeight - 5, margin);
+      	 	     	 	 	 
+      	 	 	 	 	 	 doc.addImage(signatureImg.src, 'PNG', signatureAreaX, imgSignatureY, signatureImgWidth, signatureImgHeight);
+      	 	 	 	 	 	 doc.setFontSize(10);
+      	 	 	 	 	 	 doc.setTextColor(80, 80, 80);
+      	 	 	 	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
+      	 	 	 	 	 } catch (error) {
+      	 	 	 	 	 	 console.error("Error al cargar la imagen de firma para PDF:", error);
+      	 	 	 	 	 	 doc.setFontSize(10);
+      	 	 	 	 	 	 doc.setTextColor(80, 80, 80);
+      	 	 	 	 	 	 doc.text('_________________________________', signatureAreaX + (signatureImgWidth / 2), footerY, { align: 'center' });
+      	 	 	 	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
+      	 	 	 	 	 }
+      	 	 	 	 } else {
+      	 	 	 	 	 doc.setFontSize(10);
+      	 	 	 	 	 doc.setTextColor(80, 80, 80);
+      	 	 	 	 	 doc.text('_________________________________', signatureAreaX + (signatureImgWidth / 2), footerY, { align: 'center' });
 s
-s
-              	 	 	 doc.setFontSize(10);
-              	 	 	 doc.setTextColor(80, 80, 80);
-              	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
-              	 	 } catch (error) {
-              	 	 	 console.error("Error al cargar la imagen de firma para PDF:", error);
-s
-              	 	 	 doc.setFontSize(10);
-              	 s
-            	 	 	 	 doc.setTextColor(80, 80, 80);
-              	 	 	 	 doc.text('_________________________________', signatureAreaX + (signatureImgWidth / 2), footerY, { align: 'center' });
-s
-    section-separator
-        	 	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
-              	 	 }
-              	 } else {
-    s
-              	 	 doc.setFontSize(10);
-              	 	 doc.setTextColor(80, 80, 80);
-              	 	 doc.text('_________________________________', signatureAreaX + (signatureImgWidth / 2), footerY, { align: 'center' });
-S
-            	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
-              	 }
-          	 
-              	 doc.save(`Informe_ColpoVision_${patient.name}.pdf`);
-s
-              	 showModal('PDF Exportado', 'El informe se ha exportado a PDF correctamente.');
-          	 });
-          	 
-          	 applySavedTheme();
-          	 loadPatients();
-          	 renderPatientList();
-          	 showScreen(screens.list);
-style      };
+      	 	 	 	 	 doc.text(signatureText, signatureAreaX + (signatureImgWidth / 2), footerY + 5, { align: 'center' });
+      	 	 	 	 }
+      	 	 	 	 
+      	 	 	 	 doc.save(`Informe_ColpoVision_${patient.name}.pdf`);
+      	 	 	 	 showModal('PDF Exportado', 'El informe se ha exportado a PDF correctamente.');
+      	 	 	 });
+      	 	 	 
+      	 	 	 applySavedTheme();
+      	 	 	 loadPatients();
+      	 	 	 renderPatientList();
+      	 	 	 showScreen(screens.list);
+       };
     </script>
 </body>
-
 </html>
