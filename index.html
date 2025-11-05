@@ -306,7 +306,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
-        const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+        // Función para enviar la solicitud al servidor de Vercel (api/chat.js)
+async function getAIResponse(prompt) {
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: prompt }) // Envías el mensaje del usuario
+        });
+
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+
+        const data = await response.json();
+        return data.response; // Esto es la respuesta limpia de la IA
+
+    } catch (error) {
+        console.error('Error al comunicarse con la API:', error);
+        return "Lo siento, hubo un problema al generar el informe. (Revisar logs en Vercel)";
+    }
+}
+
+// Ejemplo de cómo usarlo (reemplaza donde antes llamabas a la API):
+// const textoDelUsuario = document.getElementById('input-chat').value;
+// const respuestaDeLaIA = await getAIResponse(textoDelUsuario);
+// console.log(respuestaDeLaIA);
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -948,3 +975,4 @@
 </body>
 
 </html>
+
