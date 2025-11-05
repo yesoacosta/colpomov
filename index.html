@@ -306,7 +306,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
-        const GEMINI_API_KEY = "AIzaSyB3IuN-qXNzDMHmfUqrGBotXRkjdauu6zM";
+        const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -946,4 +946,5 @@
         };
     </script>
 </body>
+
 </html>
